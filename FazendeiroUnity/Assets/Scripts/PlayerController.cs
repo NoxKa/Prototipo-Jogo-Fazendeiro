@@ -13,7 +13,6 @@ public class PlayerController : MonoBehaviour
     public InputActionAsset InputActions;
     private InputAction moveAction;
     private InputAction fireAction;
-    private InputAction ghostAction;
     public GameObject projectilePrefab;
     public GameObject pauseDisplay;
 
@@ -25,7 +24,6 @@ public class PlayerController : MonoBehaviour
         pauseUI = InputSystem.actions.FindAction("UI/Pause");
         moveAction = InputSystem.actions.FindAction("Move");
         fireAction = InputSystem.actions.FindAction("Jump");
-        ghostAction = InputSystem.actions.FindAction("Ghost");
     }
 
 
@@ -59,10 +57,6 @@ public class PlayerController : MonoBehaviour
         if (fireAction.WasPressedThisFrame())
         {
             Instantiate(projectilePrefab, transform.position, projectilePrefab.transform.rotation);
-        }
-        if (ghostAction.WasPressedThisFrame())
-        {
-            print("Ghost");
         }
         // dispara comida ao pressionar barra de espa�o
         /*if (Input.GetKeyDown(KeyCode.Space))
