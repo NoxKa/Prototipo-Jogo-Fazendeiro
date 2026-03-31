@@ -6,10 +6,11 @@ public class MenuPrincipal : MonoBehaviour
     [SerializeField] private string fase1;
     [SerializeField] private GameObject painelMenuPrincipal;
     [SerializeField] private GameObject painelOptions;
+    [SerializeField] private GameObject painelSair;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        OffOptions();
+        
     }
 
     // Update is called once per frame
@@ -29,6 +30,16 @@ public class MenuPrincipal : MonoBehaviour
     public void OffOptions()
     {
         painelOptions.SetActive(false);
+        painelMenuPrincipal.SetActive(true);
+    }
+    public void OnSair()
+    {
+        painelMenuPrincipal.SetActive(false);
+        painelSair.SetActive(true);
+    }
+    public void OffSair()
+    {
+        painelSair.SetActive(false);
         painelMenuPrincipal.SetActive(true);
     }
     public void Quit()
