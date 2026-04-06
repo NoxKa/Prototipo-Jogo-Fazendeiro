@@ -15,6 +15,7 @@ public class PlayerController : MonoBehaviour
     private InputAction fireAction;
     public GameObject projectilePrefab;
     public GameObject pauseDisplay;
+    public bool isPaused = false;
 
     // Start is called before the first frame update
 
@@ -72,11 +73,13 @@ public class PlayerController : MonoBehaviour
             pauseDisplay.SetActive(true);
             InputActions.FindActionMap("Player").Disable();
             InputActions.FindActionMap("UI").Enable();
+            isPaused = true;
         }else if (pauseUI.WasPressedThisFrame())
         {
             pauseDisplay.SetActive(false);
             InputActions.FindActionMap("UI").Disable();
-            InputActions.FindActionMap("Player").Enable();   
+            InputActions.FindActionMap("Player").Enable();
+            isPaused = false;
         }
     }
     /*public void MoveEvent(InputAction.CallbackContext context)

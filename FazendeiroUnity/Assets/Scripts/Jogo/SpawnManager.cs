@@ -9,17 +9,27 @@ public class SpawnManager : MonoBehaviour
     private float spawnPositionZ = 20f;
     private float startDelay = 2f;
     private float spawnInterval = 1.5f;
+    private GameObject player;
+    private PlayerController playerScript;
 
     // Start is called before the first frame update
     void Start()
     {
         InvokeRepeating("SpawnAnimal", startDelay, spawnInterval);
+        player = GameObject.Find("Player");
+        playerScript = player.GetComponent<PlayerController>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (playerScript.isPaused)
+        {
+            spawnInterval = 0;
+        }else if (!playerScript.isPaused)
+        {
+            spawnInterval = 1.5f;
+        }
     }
 
     void SpawnAnimal()
