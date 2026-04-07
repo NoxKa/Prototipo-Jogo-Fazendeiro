@@ -18,7 +18,12 @@ public class DetectCollisions : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Destroy(gameObject);
-        Destroy(other.gameObject);
+        if (other.CompareTag("Veado"))
+        {
+            var canvas = FindAnyObjectByType<CanvasScript>();
+            Destroy(gameObject);
+            Destroy(other.gameObject);
+            canvas.AtualizarPontos(1);
+        }
     }
 }

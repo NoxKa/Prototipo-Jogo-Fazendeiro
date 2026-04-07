@@ -4,7 +4,7 @@ using System.Collections;
 
 public class GhostMode : MonoBehaviour
 {
-    private bool isGhost = false;
+    public bool isGhost = false;
     private bool isTimeEnd = true;
     public InputActionAsset InputActions;
     private InputAction ghostAction;
