@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerVida : MonoBehaviour
 {
@@ -17,7 +18,7 @@ public class PlayerVida : MonoBehaviour
     {
         if (vidaAtual <= 0)
         {
-            print("GameOver");
+            SceneManager.LoadScene("GameOver");
         }
     }
     private void OnTriggerEnter(Collider other)

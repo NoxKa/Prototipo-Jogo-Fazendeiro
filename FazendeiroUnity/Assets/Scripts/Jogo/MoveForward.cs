@@ -6,7 +6,7 @@ public class MoveForward : MonoBehaviour
 {
     public float speed = 20f;
     private GameObject player;
-    private PlayerController playerScript;
+    private PlayerController playerScript; // Variavel do script
     // Start is called before the first frame update
     void Start()
     {

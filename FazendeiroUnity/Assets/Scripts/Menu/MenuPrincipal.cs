@@ -47,4 +47,8 @@ public class MenuPrincipal : MonoBehaviour
         Application.Quit();
         print("Saiu");
     }
+    public void VoltarMenu()
+    {
+        SceneManager.LoadScene("Menu");
+    }
 }

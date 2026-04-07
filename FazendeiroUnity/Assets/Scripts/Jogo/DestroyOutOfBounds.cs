@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 #if UNITY_EDITOR
 using UnityEditor;
+using UnityEngine.SceneManagement;
 #endif
 
 public class DestroyOutOfBounds : MonoBehaviour
@@ -31,7 +32,7 @@ public class DestroyOutOfBounds : MonoBehaviour
 
     public void Exit()
     {
-        Debug.Log("Game Over!");
+        SceneManager.LoadScene("GameOver");
         /*
 #if UNITY_EDITOR
         EditorApplication.ExitPlaymode();
