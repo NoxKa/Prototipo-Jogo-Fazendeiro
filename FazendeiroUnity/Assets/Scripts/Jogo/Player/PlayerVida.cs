@@ -11,6 +11,7 @@ public class PlayerVida : MonoBehaviour
     {
         vidaAtual = maxVida;
         playerScript = GetComponentInChildren<GhostMode>();
+        MudarVida(0);
     }
 
     // Update is called once per frame
@@ -25,11 +26,31 @@ public class PlayerVida : MonoBehaviour
     {
         if (other.CompareTag("Veado") && !playerScript.isGhost)
         {
-            var canvas = FindAnyObjectByType<CanvasScript>();
             Destroy(other.gameObject);
-            vidaAtual--;
-            canvas.AtualizarVida(vidaAtual);
-            canvas.AtualizarPontos(1);
+            MudarVida(-1);
+        }else if (other.CompareTag("PowerUp"))
+        {
+            print("founded");
+            PowerUp powerUpScript = other.gameObject.GetComponent<PowerUp>();
+            PowerUp PowerUpPlayercript = GetComponent<PowerUp>();
+            switch(powerUpScript.powerUpIndex)
+            {
+                case 1:
+                print("entered");
+                    if (vidaAtual < maxVida)
+                    {
+                        MudarVida(1);
+                    }
+                    break;
+            }
+            Destroy(other.gameObject);
         }
+    }
+    private void MudarVida(int mod)
+    {
+        vidaAtual += mod;
+        var canvas = FindAnyObjectByType<CanvasScript>();
+        canvas.AtualizarVida(vidaAtual);
+        canvas.AtualizarPontos(1);
     }
 }
