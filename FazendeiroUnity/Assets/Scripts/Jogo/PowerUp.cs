@@ -3,7 +3,6 @@ using UnityEngine;
 public class PowerUp : MonoBehaviour
 {
     public int powerUpIndex;
-    public bool isJogador;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {

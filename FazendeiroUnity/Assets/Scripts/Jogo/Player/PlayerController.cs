@@ -13,8 +13,9 @@ public class PlayerController : MonoBehaviour
     public InputActionAsset InputActions;
     private InputAction moveAction;
     private InputAction fireAction;
-    public GameObject projectilePrefab;
+    public GameObject[] projectilePrefab;
     public GameObject pauseDisplay;
+    public int projectileIndex;
     public bool isPaused = false;
 
     // Start is called before the first frame update
@@ -57,7 +58,7 @@ public class PlayerController : MonoBehaviour
         }
         if (fireAction.WasPressedThisFrame())
         {
-            Instantiate(projectilePrefab, transform.position, projectilePrefab.transform.rotation);
+            Instantiate(projectilePrefab[projectileIndex], transform.position, projectilePrefab[projectileIndex].transform.rotation);
         }
         // dispara comida ao pressionar barra de espa�o
         /*if (Input.GetKeyDown(KeyCode.Space))
