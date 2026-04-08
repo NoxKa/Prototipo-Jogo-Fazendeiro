@@ -679,7 +679,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c69eaa64f44a37440be7174f573c178f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AnimalVidas
-  vidaMax: 5
+  powerUpPrefabs:
+  - {fileID: 7129051305196678090, guid: 8410b93824aa24b488c5b74f5750de1a, type: 3}
+  isDropper: 1
+  vidaMax: 3
 --- !u!1 &3490795014923463584
 GameObject:
   m_ObjectHideFlags: 0

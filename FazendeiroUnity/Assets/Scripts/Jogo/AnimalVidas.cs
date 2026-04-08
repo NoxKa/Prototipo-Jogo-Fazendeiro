@@ -32,8 +32,9 @@ public class AnimalVidas : MonoBehaviour
     }
     public void Drop()
     {
-        int dropChance = Random.Range(1, 5);
+        int dropChance = Random.Range(1, 6);
         int powerUpIndex = Random.Range(0, powerUpPrefabs.Length);
+        print(powerUpIndex);
         if (dropChance >= 5)
         {
             print("Dropu"); // Problema aqui
