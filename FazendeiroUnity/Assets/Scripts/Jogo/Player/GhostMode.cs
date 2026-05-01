@@ -33,21 +33,32 @@ public class GhostMode : MonoBehaviour
     {
         if (ghostAction.WasPressedThisFrame())
         {
-            Ghost();
+            Ghost(true);
+        }
+        if (ghostAction.WasReleasedThisFrame())
+        {
+            Ghost(false);
         }
     }
-    private void Ghost()
+    private void Ghost(bool ativar)
     {
-        if (!isGhost & isTimeEnd)
+        if (ativar)
         {
-            render.enabled = false;
-            isGhost = true;
-            StartCoroutine(GhostStopTime());
-        }else if (isGhost)
+            if (!isGhost & isTimeEnd)
+            {
+                render.enabled = false;
+                isGhost = true;
+                StartCoroutine(GhostStopTime());
+            }
+        }
+        else if (!ativar)
         {
-            render.enabled = true;
-            isGhost = false;
-            StartCoroutine(GhostStartTime());
+            if (isGhost)
+            {
+                render.enabled = true;
+                isGhost = false;
+                StartCoroutine(GhostStartTime());
+            }
         }
     }
     private IEnumerator GhostStopTime()
@@ -55,7 +66,7 @@ public class GhostMode : MonoBehaviour
         yield return new WaitForSeconds(2);
         if (isGhost)
         {
-            Ghost();
+            Ghost(false);
         }
     }
     private IEnumerator GhostStartTime()
