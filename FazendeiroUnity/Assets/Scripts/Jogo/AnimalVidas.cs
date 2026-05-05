@@ -35,7 +35,7 @@ public class AnimalVidas : MonoBehaviour
         int dropChance = Random.Range(1, 11);
         int powerUpIndex = Random.Range(0, powerUpPrefabs.Length);
         print(powerUpIndex);
-        if (dropChance >= 10)
+        if (dropChance >= 6)
         {
             print("Dropu"); // Problema aqui
             Instantiate(powerUpPrefabs[powerUpIndex], transform.position, powerUpPrefabs[powerUpIndex].transform.rotation);
